@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>todo app</h1>
-    <input type="text" v-model="todoName" v-on:keyup.enter="add">
+    <input type="text" v-model="todoName" v-on:keyup.enter="add" placeholder="enter">
     <ul v-if="items.length">
       <li v-for="item in items" v-bind:key="item.ID">
         {{ item.Name }}
@@ -30,11 +30,15 @@ export default {
   },
   methods: {
     add: function() {
-      this.items.push({
-        ID: this.items.length + 1,
-        Name: this.todoName
-      })
-      this.todoName = null;
+      if (this.todoName) {
+        this.items.push({
+          ID: this.items.length + 1,
+          Name: this.todoName
+        })
+        this.todoName = null;
+      } else {
+        alert('empty');
+      }
     },
     remove: function(id) {
 			this.items = this.items.filter(item => item.ID !== id);

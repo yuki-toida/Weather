@@ -2,7 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/yuki-toida/todo/controller"
+
+	"github.com/yuki-toida/golang-vue/controller"
 )
 
 func main() {
